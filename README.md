@@ -1,1 +1,1 @@
-eCommerce with Laravel
+eCommerce website with Laravel
