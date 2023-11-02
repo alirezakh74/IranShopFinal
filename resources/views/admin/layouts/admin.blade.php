@@ -45,6 +45,7 @@
     </div>
   </div>
 
+  @include('sweetalert::alert')
   <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 </body>
 

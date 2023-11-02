@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class BrandController extends Controller
 {
     /**
@@ -46,6 +48,8 @@ class BrandController extends Controller
 
         if ($saved) {
             // Brand was saved successfully
+            //Alert::success($brand->name, 'با موفقیت ایجاد شد');
+            Alert::toast('برند ایجاد شد', 'success');
             return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully! 😃');
         } else {
             // Brand save failed
@@ -87,9 +91,17 @@ class BrandController extends Controller
         $brand->name = $validatedData['brand_name'];
         $brand->is_active = $validatedData['is_active'];
 
-        $brand->save();
+        $saved = $brand->save();
 
-        return redirect()->route('admin.brands.index')->with('success', 'Brand updated successfully');
+        if ($saved) {
+            // Brand was saved successfully
+            //Alert::success($brand->name, 'با موفقیت بروزرسانی شد');
+            Alert::toast('برند بروزرسانی شد', 'success');
+            return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully! 😃');
+        } else {
+            // Brand save failed
+            return back()->with('error', 'Failed to save brand. Please try again.');
+        }
     }
 
     /**
