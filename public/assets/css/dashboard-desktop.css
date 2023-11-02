@@ -1,0 +1,314 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  /* word-wrap: wrap; */
+  justify-content: space-around;
+  align-items: center;
+  /* align-content: center; */
+  /* gap: 5px; */
+}
+
+.sidenav,
+.content {
+  min-height: 100vh;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.sidenav {
+  background-color: var(--side-bar-color);
+  color: var(--primary-color);
+  width: 15vw;
+  min-height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all 0.5s;
+}
+
+/* .sidenav:hover{
+    width: 10vw;
+} */
+
+.sidenav .menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  height: 100%;
+}
+
+/* .sidenav .menu::after{
+  content: '';
+  border-bottom: 1px solid var(--primary-color);
+  width: 100%;
+  margin-top: 15px;
+} */
+
+.sidenav .menu .website-name{
+  font-size: 0rem;
+  color: var(--content-color);
+  transition: all 0.5s;
+}
+
+.sidenav .menu .website-name:hover{
+  color: var(--top-bar-color);
+  transform: scale(1.2);
+}
+
+.sidenav .menu .website-name .char{
+  font-size: 1.7rem !important;
+  /* color: red; */
+  padding: 0;
+  margin: 0;
+  animation: changecolor 6.0s ease-out 0.0s infinite alternate both;
+}
+
+.sidenav .menu .website-name .char:nth-child(1){
+  animation-delay: 0.25s !important;
+}
+.sidenav .menu .website-name .char:nth-child(2){
+  animation-delay: 0.5s !important;
+}
+.sidenav .menu .website-name .char:nth-child(3){
+  animation-delay: 0.75s !important;
+}
+.sidenav .menu .website-name .char:nth-child(4){
+  animation-delay: 1.0s !important;
+}
+.sidenav .menu .website-name .char:nth-child(5){
+  animation-delay: 1.25s !important;
+}
+.sidenav .menu .website-name .char:nth-child(6){
+  animation-delay: 1.5s !important;
+}
+.sidenav .menu .website-name .char:nth-child(7){
+  animation-delay: 1.75s !important;
+}
+.sidenav .menu .website-name .char:nth-child(8){
+  animation-delay: 2.0s !important;
+}
+.sidenav .menu .website-name .char:nth-child(9){
+  animation-delay: 2.25s !important;
+}
+
+@keyframes changecolor {
+  from {color: var(--primary-color);}
+  to {color: var(--secondary-color);}
+}
+
+.sidenav .menu a.single-menu {
+  background-color: var(--side-bar-color);
+  padding: 5px;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 10px;
+  text-align: right;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.sidenav .menu a:hover {
+  background-color: var(--content-color);
+}
+
+.sidenav .menu .dropdown-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: var(--side-bar-color);
+  color: var(--primary-color);
+  /* border: none; */
+  /* outline: none; */
+  /* align-self: flex-start; */
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.sidenav .menu .dropdown-btn .drowpdown-icon{
+  /* transform: rotate(90deg); */
+  transition: all 0.5s;
+}
+
+.sidenav .menu .dropdown-menu {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  height: 0px;
+  /* max-height: 300px; */
+  overflow: hidden;
+  transition: all 0.5s;
+  margin-top: 0.3rem;
+  gap: 3px;
+}
+
+.sidenav .menu .dropdown-menu a{
+  padding: 5px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  text-align: right;
+}
+
+.sidenav .menu .dropdown-menu a:hover {
+  background-color: var(--content-color);
+  /* border: 1px solid white; */
+}
+
+.active {
+  background-color: var(--content-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.header-content-wrapper {
+  background-color: var(--content-color);
+  color: var(--primary-color);
+  width: calc(100vw - 5vw);
+  min-height: 100vh;
+}
+
+.header-content-wrapper {
+  background-color: var(--content-color);
+  color: var(--primary-color);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header {
+  background-color: var(--top-bar-color);
+  color: var(--primary-color);
+  width: 100%;
+  min-height: 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: var(--secondary-color);
+}
+
+.header span, .header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header button {
+    border: none;
+    background-color: transparent;
+}
+
+.header .menu-btn-wrapper {
+
+}
+
+.header .menu-btn-wrapper .menuBtn {
+  display: none;
+}
+
+.header .searchMobile-wrapper {
+  display: none;
+}
+
+.header .search-btn-wrapper {
+  flex-grow: 1;
+}
+
+.header .search-btn-wrapper .searchForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.header .search-btn-wrapper .searchForm input {
+  border: 1px solid var(--side-bar-color);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  height: 1.5rem;
+  padding: 0px 10px;
+}
+.header .search-btn-wrapper .searchForm input:focus {
+  outline-color: blue;
+  /* border: 1px solid var(--content-color); */
+}
+
+.header .search-btn-wrapper .searchBtn {
+  border: 1px solid var(--secondary-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  line-height: 1.4rem;
+}
+
+.header .notifications-wrapper {
+    position: relative;
+}
+.header .notifications-wrapper .counter-text {
+    position: absolute;
+    top: -18px;
+    right: -15px;
+    background-color: var(--counter-bg-color);
+    color: var(--counter-color);
+}
+
+.header .messages-wrapper{
+    position: relative;
+}
+.header .messages-wrapper .counter-text {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    background-color: var(--counter-bg-color);
+    color: var(--counter-color);
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-wrapper .user-name {
+}
+
+.content {
+}
+
+.content .head-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* for mini size or landscape and sidebar width problem */
+@media only screen and (max-width: 900px) and (min-width: 769px){
+  .sidenav{
+    width: 21vw;
+  }
+}

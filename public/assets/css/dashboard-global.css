@@ -1,0 +1,496 @@
+:root {
+  --primary-color: #000;
+  --secondary-color: #bf3e3e;
+
+  --top-bar-color: #f3b391;
+  --side-bar-color: #f3b391;
+  --content-color: #f6d4ba;
+
+  /* badge colors */
+  --counter-color: #fff;
+  --counter-bg-color: #e74a3b;
+
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-readonly-input: #eee;
+
+  --hover-table-btn-duration: 0.5s;
+}
+
+.dark-theme {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/Vazir-Medium-FD-WOL.ttf");
+}
+
+@font-face {
+  font-family: "Khandevane";
+  src: url("../fonts/Khandevane.ttf");
+}
+
+@font-face {
+  font-family: "IranNastaliq";
+  src: url("../fonts/IranNastaliq.ttf");
+}
+
+@font-face {
+  font-family: "FarMitra";
+  src: url("../fonts/Far_Mitra.ttf");
+}
+
+@font-face {
+  font-family: "BNazanin";
+  src: url("../fonts/BNazanin.ttf");
+}
+
+@font-face {
+  font-family: "IranianSans";
+  src: url("../fonts/Iranian_Sans.ttf");
+}
+
+body {
+  direction: rtl;
+  /* background-color: var(--top-bar-color); */
+  height: 100%;
+  /* font-family: "Vazir", Arial, Helvetica, sans-serif; */
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Vazir", Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.b-green{
+  background-color: green !important;
+}
+
+.b-red{
+  background-color: red !important;
+}
+
+.form-btn{
+  background-color: var(--side-bar-color);
+  color: var(--primary-color);
+  border: 1px solid var(--top-bar-color);
+  border-radius: 8px;
+  padding: 0.2rem;
+}
+
+.form-submit-btn{
+  background-color: var(--color-white);
+  color: var(--primary-color);
+  border: 1px solid var(--color-black);
+  border-radius: 8px;
+  padding: 0.2rem;
+  font-size: 1.0em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.rotate-180 {
+  /* transition: all 0.5s; */
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+button {
+  cursor: pointer;
+}
+
+.sidenav{
+  background-color: var(--color-white);
+}
+
+.create-btn{
+  background-color: var(--side-bar-color);
+  color: var(--color-white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+
+.create-btn a{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-down-wrapper {
+  position: relative;
+  color: var(--secondary-color);
+}
+
+.single-menu,
+.dropdown-btn{
+  border: 1px solid var(--color-black) !important;
+}
+
+.drop-down-wrapper .drop-down-content {
+  visibility: hidden;
+  position: absolute;
+  top: 1.6rem;
+  left: -80px;
+  width: 180px;
+  background-color: var(--top-bar-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* it is for left drowp down problem of user profile */
+.left-0{
+  left: -0.5rem !important;
+  width: 100px !important;
+}
+
+.drop-down-wrapper .drop-down-content a{
+  color: var(--primary-color);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.drop-down-wrapper .drop-down-content a:hover {
+  background-color: var(--content-color);
+}
+
+.counter-text{
+  user-select: none;
+  border-radius: 100% !important;
+  width: calc(100% + 0.2rem);
+  height: calc(100% + 0.2rem);
+  line-height: 1;
+  /* padding: 0.1rem 0.5rem; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.user-name{
+  color: var(--primary-color);
+}
+
+.content{
+  background-color: var(--content-color);
+}
+
+.content .head-content{
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.content .head-content .title-content{
+  font-size: 1.8rem;
+}
+
+.content .head-content .report-btn{
+  background-color: var(--side-bar-color);
+  color: var(--color-white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+
+.content .head-content .report-btn a{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .head-content .report-btn:hover{
+  background-color: var(--secondary-color);
+}
+
+.cards-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card{
+  border: 1px solid var(--color-black);
+  border-right: 0.25rem solid var(--color-black);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+  word-wrap: break-word;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  flex: 1 0 21%;
+
+  padding: 1.25rem;
+  padding-bottom: 0.5rem;
+
+  width: 100%;
+}
+
+.card-right-part{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-title{
+  color: var(--color-black);
+  font-size: 0.8em;
+}
+
+.card-value{
+  font-size: 1.4em;
+}
+
+.card-left-part{
+
+}
+
+.item-create-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin: 2rem 0.4rem;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.parent-flex-4{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-self: stretch;
+}
+
+.child-flex-4{
+  flex: 1 0 21%;
+  align-self: stretch;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.full-width{
+  width: 100% !important;
+}
+
+.auto-width{
+  width: auto !important;
+}
+
+.width-25{
+  width: 25%;
+}
+
+.width-50{
+  width: 50%;
+}
+
+.mr-5{
+  margin-right: 5px;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.mt-5{
+  margin-top: 5px;
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+
+.mt-20{
+  margin-top: 20px;
+}
+
+.min-h-50{
+  min-height: 50px;
+}
+
+.min-h-100{
+  min-height: 100px;
+}
+
+label{
+  color: var(--primary-color);
+}
+
+.table-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.list-items-table{
+  padding: 1rem;
+  align-self: stretch;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.list-items-table tr,
+.list-items-table th,
+.list-items-table td{
+  border: 1px solid var(--color-black);
+  padding: 1rem;
+  text-align: center;
+}
+
+.list-items-table tr{
+  padding: 1rem;
+}
+
+.list-items-table tbody tr:nth-child(odd){
+  background-color: var(--side-bar-color);
+}
+
+.item-operation{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+
+.table-btn{
+  border: 1px solid var(--color-black);
+  border-radius: 8px;
+  color: var(--color-black);
+  padding: 0.2rem;
+  transition: all var(--hover-table-btn-duration);
+}
+
+.table-btn:hover{
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.create-form,
+.show-form{
+  margin: 1rem 0.4rem;
+}
+
+select{
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+input{
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+input[readonly] {
+  background-color: var(--color-readonly-input);
+  border: 1px solid var(--color-black);
+  border-radius: 8px;
+  outline: none;
+  padding: 5px;
+}
+
+input[search]{
+  border: 1px solid var(--color-black) !important;
+}
+
+.active-status{
+  color: var(--color-black);
+}
+
+.non-active-status{
+  color: var(--color-white);
+}
+
+.alert-section{
+    background-color: rgba(235, 39, 39, 0.3);
+    margin-top: 1.5rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+}
+
+.alerts{
+    margin: 0.2rem;
+}
+
+.alert-text{
+    color: red;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination li,
+.pagination a{
+    /* margin: 0.3rem; */
+    padding: 0.4rem 0.8rem;
+}
+
+.pagination li.active {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: var(--top-bar-color);
+    border-radius: 8px;
+}
+
+.disabled{
+    /* visibility: hidden; */
+}
