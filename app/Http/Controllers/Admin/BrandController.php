@@ -60,20 +60,17 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Brand $brand)
     {
-        $brand = Brand::find($id);
-        return view('admin.brands.update', compact('brand'));
+        return view('admin.brands.show', compact('brand'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Brand $brand)
     {
-        $brand = Brand::find($id);
-        dd($brand);
-        return view('admin.brands.update');
+        return view('admin.brands.update', compact('brand'));
     }
 
     /**

@@ -34,18 +34,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($brands as $brand)
+
+                    @foreach ($brands as $key => $brand)
                         <tr>
-                            <td data-title="#">{{ $brand->id }}</td>
+                            <td data-title="#">{{ $brands->firstItem() + $key }}</td>
                             <td data-title="نام">{{ $brand->name }}</td>
-                            <td data-title="وضعیت" class="{{ $brand->is_active == 1 ? 'active-status' : 'non-active-status' }}">{{ $brand->is_active == 1 ? 'فعال' : 'غیرفعال' }}</td>
+                            <td data-title="وضعیت" class="{{ $brand->getRawOriginal('is_active') ? 'active-status' : 'non-active-status' }}">{{ $brand->is_active }}</td>
                             <td data-title="عملیات">
                                 <div class="item-operation">
-                                    <a title="ویرایش" href="{{ route('admin.brands.update', $brand) }}">
-                                        <span class="material-symbols-outlined">
-                                            edit
-                                        </span>
+
+                                    <a href="{{ route('admin.brands.show', $brand) }}">
+                                        نمایش
                                     </a>
+
+                                    <form action="{{ route('admin.brands.edit', $brand) }}" method="GET">
+                                        <button type="submit" style="background:transparent;border:none; font-size: 1rem;">
+                                            ویرایش
+                                        </button>
+                                    </form>
 
                                     {{--  <form action="{{ route('admin.brands.destroy', $brand->id) }}" method="POST">
                                         @csrf
