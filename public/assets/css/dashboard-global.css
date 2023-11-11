@@ -449,7 +449,8 @@ input[search]{
 }
 
 .non-active-status{
-  color: var(--color-white);
+  color: red;
+  font-weight: bold;
 }
 
 .alert-section{

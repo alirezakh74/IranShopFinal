@@ -15,7 +15,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::paginate(5);
+        $brands = Brand::latest()->paginate(5);
         return view('admin.brands.index', compact('brands'));
     }
 
@@ -49,8 +49,8 @@ class BrandController extends Controller
         if ($saved) {
             // Brand was saved successfully
             //Alert::success($brand->name, 'با موفقیت ایجاد شد');
-            Alert::toast('برند ایجاد شد', 'success');
-            return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully! 😃');
+            Alert::toast('برند مورد نظر ایجاد شد', 'success');
+            return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully!');
         } else {
             // Brand save failed
             return back()->with('error', 'Failed to save brand. Please try again.');
@@ -70,7 +70,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('admin.brands.update', compact('brand'));
+        return view('admin.brands.edit', compact('brand'));
     }
 
     /**
@@ -93,8 +93,8 @@ class BrandController extends Controller
         if ($saved) {
             // Brand was saved successfully
             //Alert::success($brand->name, 'با موفقیت بروزرسانی شد');
-            Alert::toast('برند بروزرسانی شد', 'success');
-            return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully! 😃');
+            Alert::toast('برند مورد نظر بروزرسانی شد', 'success');
+            return redirect()->route('admin.brands.index')->with('success', 'Brand saved successfully!');
         } else {
             // Brand save failed
             return back()->with('error', 'Failed to save brand. Please try again.');

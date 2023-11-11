@@ -11,7 +11,7 @@ class Brand extends Model
     use HasFactory, Sluggable;
 
     protected $table = 'brands';
-    protected $gaurded = [];
+    protected $guarded = [];
 
     public function sluggable(): array
     {

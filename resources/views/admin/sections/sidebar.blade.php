@@ -54,7 +54,7 @@
             <a href="products.html">لیست محصولات</a>
             <a href="comments.html">لیست نظرات</a>
             <a href="categories.html">دسته بندی ها</a>
-            <a href="attributes.html">ویژگی ها</a>
+            <a href="{{ route('admin.attributes.index') }}">ویژگی ها</a>
             <a href="tags.html">تگ ها</a>
         </div>
     </div>
