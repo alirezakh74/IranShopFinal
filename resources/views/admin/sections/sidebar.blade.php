@@ -53,7 +53,7 @@
         <div class="dropdown-menu">
             <a href="products.html">لیست محصولات</a>
             <a href="comments.html">لیست نظرات</a>
-            <a href="categories.html">دسته بندی ها</a>
+            <a href="{{ route('admin.categories.index') }}">دسته بندی ها</a>
             <a href="{{ route('admin.attributes.index') }}">ویژگی ها</a>
             <a href="tags.html">تگ ها</a>
         </div>

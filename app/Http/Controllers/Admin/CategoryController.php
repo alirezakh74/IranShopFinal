@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Attribute;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::latest()->paginate(5);
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -21,8 +23,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         $attributes = Attribute::all();
-        return view('admin.categories.create', compact('attributes'));
+        return view('admin.categories.create', compact('categories', 'attributes'));
     }
 
     /**

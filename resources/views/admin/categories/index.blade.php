@@ -1,17 +1,17 @@
 @extends('admin.layouts.admin')
 
-@section('title', 'مدیریت برند')
+@section('title', 'مدیریت دسته بندی')
 
 @section('content')
     {{--  <!-- head-conten -->  --}}
     <div class="head-content">
-        <div class="title-content">فهرست برندها ({{ $brands->total() }})</div>
+        <div class="title-content">فهرست دسته بندی ها ({{ $categories->total() }})</div>
         <div class="create-btn">
-            <a href="{{ route('admin.brands.create') }}">
+            <a href="{{ route('admin.categories.create') }}">
                 <span class="material-symbols-outlined">
                     add
                 </span>
-                ایجاد برند
+                ایجاد دسته بندی
             </a>
         </div>
     </div>
@@ -19,10 +19,10 @@
     {{--  <!-- horizontal line -->  --}}
     <hr>
 
-    {{--  <!-- brands table -->  --}}
+    {{--  <!-- categories table -->  --}}
     <div class="table-wrapper">
-        @if ($brands->isEmpty())
-            <p>برندی وجود ندارد</p>
+        @if ($categories->isEmpty())
+            <p>دسته بندی ای وجود ندارد</p>
         @else
             <table class="list-items-table">
                 <thead>
@@ -35,25 +35,25 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($brands as $key => $brand)
+                    @foreach ($categories as $key => $brand)
                         <tr>
-                            <td data-title="#">{{ $brands->firstItem() + $key }}</td>
+                            <td data-title="#">{{ $categories->firstItem() + $key }}</td>
                             <td data-title="نام">{{ $brand->name }}</td>
                             <td data-title="وضعیت" class="{{ $brand->getRawOriginal('is_active') ? 'active-status' : 'non-active-status' }}">{{ $brand->is_active }}</td>
                             <td data-title="عملیات">
                                 <div class="item-operation">
 
-                                    <a href="{{ route('admin.brands.show', $brand) }}">
+                                    <a href="{{ route('admin.categories.show', $brand) }}">
                                         نمایش
                                     </a>
 
-                                    <form action="{{ route('admin.brands.edit', $brand) }}" method="GET">
+                                    <form action="{{ route('admin.categories.edit', $brand) }}" method="GET">
                                         <button type="submit" style="background:transparent;border:none; font-size: 1rem;">
                                             ویرایش
                                         </button>
                                     </form>
 
-                                    {{--  <form action="{{ route('admin.brands.destroy', $brand->id) }}" method="POST">
+                                    {{--  <form action="{{ route('admin.categories.destroy', $brand->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button title="حذف" style="background:transparent;border:none;">
@@ -73,6 +73,6 @@
     </div>
 
     {{--  paginate section  --}}
-    {{ $brands->onEachSide(1)->links() }}
+    {{ $categories->onEachSide(1)->links() }}
 
 @endsection
