@@ -158,6 +158,13 @@ return [
         'latitude'              => 'عرض جغرافیایی',
         'brand_name'            => 'نام برند',
         'is_active'             => 'وضعیت',
+        'parent_id'             => 'والد',
+        'slug'             => 'نام انگلیسی',
+        'attributes_id'             => 'انتخاب ویژگی های قابل فیلتر',
+        'filterable_attributes_id'             => 'انتخاب ویژگی های قابل فیلتر',
+        'variation_id'             => 'انتخاب ویژگی متغیر',
+        'icon' => 'آیکون',
+        'comment' => 'توضیحات',
     ],
 
 ];

@@ -119,10 +119,12 @@
             </div>
 
             <div class="flex-column child-flex-4">
-                <label for="parent">والد</label>
-                <select name="parent" id="parent">
+                <label for="parent_id">والد</label>
+                <select name="parent_id" id="parent_id">
                     <option value="0" selected>بدون والد</option>
-                    <option value="1">والد 1</option>
+                    @foreach ($parentCategories as $parentCategory)
+                        <option value="{{ $parentCategory->id }}">{{ $parentCategory->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -136,13 +138,13 @@
 
             <div class="flex-column child-flex-4">
                 <label for="attributes_id">ویژگی ها</label>
-                <div name="attributes_id[]" id="attributes_id" multiple>
+                <div name="attributes_id[]" id="attributes_id">
                 </div>
             </div>
 
             <div class="flex-column child-flex-4">
                 <label for="filterable_attributes_id">انتخاب ویژگی های قابل فیلتر</label>
-                <div name="filterable_attributes_id[]" id="filterable_attributes_id" multiple>
+                <div name="filterable_attributes_id[]" id="filterable_attributes_id">
                 </div>
             </div>
 

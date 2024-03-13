@@ -23,9 +23,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $parentCategories = Category::where('parent_id', 0)->get();
         $attributes = Attribute::all();
-        return view('admin.categories.create', compact('categories', 'attributes'));
+
+        return view('admin.categories.create', compact('parentCategories', 'attributes'));
     }
 
     /**
@@ -33,7 +34,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:categories,slug',
+            'parent_id' => 'required',
+            'attributes_id' => 'required',
+            'filterable_attributes_id' => 'required',
+            'variation_id' => 'required',
+        ]);
+
+        $category = Category::create([
+            'parent_id' => $request->parent_id,
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'description' => $request->comment,
+            'icon' => $request->icon,
+            'is_active' => $request->is_active
+        ]);
     }
 
     /**
