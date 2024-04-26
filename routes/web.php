@@ -35,3 +35,8 @@ Route::prefix('admin-panel')->name('admin.')->group(function () {
     Route::resource('attributes', AttributeController::class);
     Route::resource('categories', CategoryController::class);
 });
+
+Route::get('/migrate', function(){
+    Artisan::call('migrate');
+    return Artisan::output();
+});

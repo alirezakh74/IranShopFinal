@@ -35,25 +35,25 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($categories as $key => $brand)
+                    @foreach ($categories as $key => $category)
                         <tr>
                             <td data-title="#">{{ $categories->firstItem() + $key }}</td>
-                            <td data-title="نام">{{ $brand->name }}</td>
-                            <td data-title="وضعیت" class="{{ $brand->getRawOriginal('is_active') ? 'active-status' : 'non-active-status' }}">{{ $brand->is_active }}</td>
+                            <td data-title="نام">{{ $category->name }}</td>
+                            <td data-title="وضعیت" class="{{ $category->getRawOriginal('is_active') ? 'active-status' : 'non-active-status' }}">{{ $category->is_active }}</td>
                             <td data-title="عملیات">
                                 <div class="item-operation">
 
-                                    <a href="{{ route('admin.categories.show', $brand) }}">
+                                    <a href="{{ route('admin.categories.show', $category) }}">
                                         نمایش
                                     </a>
 
-                                    <form action="{{ route('admin.categories.edit', $brand) }}" method="GET">
+                                    <form action="{{ route('admin.categories.edit', $category) }}" method="GET">
                                         <button type="submit" style="background:transparent;border:none; font-size: 1rem;">
                                             ویرایش
                                         </button>
                                     </form>
 
-                                    {{--  <form action="{{ route('admin.categories.destroy', $brand->id) }}" method="POST">
+                                    {{--  <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button title="حذف" style="background:transparent;border:none;">
