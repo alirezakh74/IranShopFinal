@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Attribute;
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class CategoryController extends Controller
 {
     /**
@@ -43,7 +45,7 @@ class CategoryController extends Controller
             'variation_id' => 'required',
         ]);
 
-        $category = Category::create([
+        $saved = Category::create([
             'parent_id' => $request->parent_id,
             'name' => $request->name,
             'slug' => $request->slug,
@@ -51,6 +53,16 @@ class CategoryController extends Controller
             'icon' => $request->icon,
             'is_active' => $request->is_active
         ]);
+
+        if ($saved) {
+            // Categroy was saved successfully
+            //Alert::success($saved->name, 'با موفقیت ایجاد شد');
+            Alert::toast('دسته بندی مورد نظر ایجاد شد', 'success');
+            return redirect()->route('admin.categories.index')->with('success', 'Category saved successfully!');
+        } else {
+            // Category save failed
+            return back()->with('error', 'Failed to save category. Please try again.');
+        }
     }
 
     /**
@@ -58,7 +70,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('admin.categories.show', compact('categories'));
     }
 
     /**
@@ -66,7 +78,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.categories.edit', compact('categories'));
     }
 
     /**
